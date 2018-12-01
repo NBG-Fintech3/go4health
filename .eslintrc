@@ -1,0 +1,35 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 6,
+      "ecmaFeatures": {
+        "impliedStrict": true,
+        "experimentalObjectRestSpread": true,
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "react",
+      "flowtype"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:flowtype/recommended"
+    ],
+    "rules": {
+      "indent": [1, 2, {"SwitchCase": 1}],
+      "linebreak-style": [1, "unix"],
+      "quotes": [1, "single"],
+      "semi": ["error", "never"],
+      "no-unused-vars": 1,
+      "no-console": 1,
+      "no-undef": 1,
+      "react/jsx-uses-react": 1
+    }
+}

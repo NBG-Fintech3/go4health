@@ -1,0 +1,37 @@
+{
+  "name": "go4health",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "native-base": "^2.8.1",
+    "react": "16.6.1",
+    "react-native": "0.57.7",
+    "react-native-google-fit": "^0.7.1",
+    "react-navigation": "^3.0.4",
+    "react-redux": "^5.1.1",
+    "redux": "^4.0.1",
+    "redux-immutable": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "23.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.87.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.50.0",
+    "react-test-renderer": "16.6.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
