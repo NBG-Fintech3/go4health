@@ -1,26 +1,14 @@
 /* @flow */
-import {Record, Map} from 'immutable'
+import {Map} from 'immutable'
 
 import {
   GOOGLE_FIT_AUTHORIZATION_FAILURE,
   GOOGLE_FIT_AUTHORIZATION_SUCCESS
 } from '../constants/actionTypes'
 
-const UserRecord = Record({
-  id: '',
-  firstName: 'Georgios',
-  lastName: 'Rassias',
-  email: 'grassias@gmail.com',
-  token: '',
-  avatar: 'https://conferencecloud-assets.s3.amazonaws.com/default_avatar.png',
-  country: '',
-  city: '',
-  phone: '',
-  go4morePoints: 500,
-  googleFitAuthorized: false
-})
+const Activities = Map()
 
-export default function user(state = new UserRecord(), action) {
+export default function user(state = new Activities(), action) {
   switch (action.type) {
     case 'LOGIN_REQUEST':
       return state.set('attemptingLogin', true)

@@ -4,48 +4,25 @@ import {View, StyleSheet} from 'react-native'
 import {Provider} from 'react-redux'
 
 import configureStore from './store/configureStore'
-import RootNavigator from './RootNavigator'
+import HomeScreen from './screens/HomeScreen'
+import ActivityScreen from './screens/ActivityScreen'
 
+//import RootNavigator from './RootNavigator'
 
 export default class App extends Component {
-
-  state: {
-    store: any
+  state = {
+    store: undefined
   }
-
-  constructor() {
-    console.log('AAAAAAAAA')
-    super()
-    this.state = {
-      store: undefined
-    }
+  constructor(props) {
+    super(props)
+    this.state.store = configureStore()
   }
-  /*
-  // any is needed in order to make flow stop complaining
-  // due to conflicting type definition
-  // (see https://github.com/facebook/flow/issues/1803)
-  async componentDidMount(): any {
-    const store = await configureStore()
-    this.setState({store})
-  }
-
+  
   render() {
-    if (!this.state.store) {
-      return null
-    }
     return (
       <Provider store={this.state.store}>
-        <View style={styles.container}>
-          <RootNavigator />
-        </View>
+        <HomeScreen/>
       </Provider>
     )
   }
-  */
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  } 
-})

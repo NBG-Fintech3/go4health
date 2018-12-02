@@ -6,24 +6,24 @@ import {
   StyleSheet,
   Text,
   View,
-  Slider,
   StatusBar
 } from 'react-native'
-import {Container, Header, Left, Body, Right, Content, Card, CardItem} from 'native-base'
+import {Container, Header, Body, Content, Card, CardItem} from 'native-base'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
 
-class HomeScreen extends Component {
+class ActivityScreen extends Component {
   static navigationOptions = {
     header: null
   }
+
   render() {
     let {dispatch, user} = this.props
     user = user.toJS()
     return (
       <Container style={styles.container}>
-        <StatusBar hidden backgroundColor='rgb(56, 255, 218)'/>
+        <StatusBar barStyle='light-content' translucent={true} backgroundColor='#00ff99'/>
         <Header transparent style={styles.header}>
           <Body style={styles.logoContainer}>
             <Image
@@ -50,42 +50,50 @@ class HomeScreen extends Component {
             <Text style={styles.points}>{user.go4morePoints}</Text>
           </View>
 
-          <View style={styles.tabBarInfoContainer}>
-            <Text style={styles.activityHeader}>Your goals last week:</Text>
+          <View style={styles.activityContainer}>
             <Card>
               <CardItem>
                 <Body style={styles.cardItemBody}>
                   <Image
-                    source={require('../../assets/images/walking.png')}
+                    source={require('../../assets/images/cosmote_logo.jpg')}
                     style={styles.partnerLogo}  
                   />
                   <View style={styles.partnerInfoContainer}>
-                    <Slider disabled value={0.4}></Slider>
-                    <Text>1km to win</Text>
                   </View>
                 </Body>
               </CardItem>
               <CardItem>
                 <Body style={styles.cardItemBody}>
-                  <Image source={require('../../assets/images/cycling.png')} style={styles.partnerLogo}/>
+                  <Image source={require('../../assets/images/shell_logo.png')} style={styles.partnerLogo}/>
                   <View style={styles.partnerInfoContainer}>
-                    <Slider disabled value={0.2}></Slider>
-                    <Text>10km to win</Text>
                   </View>
                   
                 </Body>
               </CardItem>
               <CardItem>
                 <Body style={styles.cardItemBody}>
-                  <Image source={require('../../assets/images/swimming.png')} style={styles.partnerLogo}/>
+                  <Image source={require('../../assets/images/sklavenitis_logo.png')} style={styles.partnerLogo}/>
                   <View style={styles.partnerInfoContainer}>
-                    <Slider disabled value={0.6}></Slider>
-                    <Text>0.2km to win</Text>
+                  </View>
+                </Body>
+              </CardItem>
+              <CardItem>
+                <Body style={styles.cardItemBody}>
+                  <Image source={require('../../assets/images/sklavenitis_logo.png')} style={styles.partnerLogo}/>
+                  <View style={styles.partnerInfoContainer}>
+                  </View>
+                </Body>
+              </CardItem>
+              <CardItem>
+                <Body style={styles.cardItemBody}>
+                  <Image source={require('../../assets/images/sklavenitis_logo.png')} style={styles.partnerLogo}/>
+                  <View style={styles.partnerInfoContainer}>
                   </View>
                 </Body>
               </CardItem>
             </Card>
           </View>
+
         </Content>
 
       </Container>
@@ -93,7 +101,7 @@ class HomeScreen extends Component {
   }
 }
 
-HomeScreen.propTypes = {
+ActivityScreen.propTypes = {
   dispatch: PropTypes.func,
   user: PropTypes.object
 }
@@ -101,7 +109,9 @@ HomeScreen.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(56, 255, 218)',
+    flexGrow: 0,
+    overflow: 'hidden',
+    backgroundColor: '#00ff99',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -111,7 +121,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentStyle: {
+    position: 'absolute',
     paddingTop: 5,
+    bottom: 0,
+    top: 0
   },
   logoContainer: {
     alignItems: 'center',
@@ -122,7 +135,6 @@ const styles = StyleSheet.create({
     height: 60
   },
   userInfoContainer: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
@@ -146,12 +158,12 @@ const styles = StyleSheet.create({
   },
   username: {
     flex: 1,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'rgba(96, 100, 109, 1)',
     lineHeight: 24,
     textAlign: 'left',
-    marginLeft: 20
+    paddingLeft: 20
   },
   pointHeadline: {
     fontSize: 20
@@ -178,16 +190,15 @@ const styles = StyleSheet.create({
   },
   tabBarInfoText: {
     fontSize: 17,
-    color: 'rgba(96,100,109,1)',
+    color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   },
   cardItemBody: {
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
-    height: 100,
-    borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.3)'
+    backgroundColor: 'red',
+    height: 100
   },
   navigationFilename: {
     marginTop: 5,
@@ -212,10 +223,12 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   header: {
-    backgroundColor: 'rgb(56, 255, 218)'
+    backgroundColor: '#00ff99'
   },
-  activityHeader: {
-    fontSize: 16
+  activityContainer: {
+    flex: 1,
+    overflow: 'scroll',
+    backgroundColor: 'rgb(100,100,100)'
   }
 })
 
@@ -225,4 +238,4 @@ function select(store) {
   }
 }
 
-export default connect(select)(HomeScreen)
+export default connect(select)(ActivityScreen)

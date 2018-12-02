@@ -1,14 +1,14 @@
 /* @flow */
-import {StackNavigator} from 'react-navigation'
+import React, {Component} from 'react'
+import {createStackNavigator, createAppContainer} from 'react-navigation'
 
 import HomeScreen from './screens/HomeScreen'
+import ActivityScreen from './screens/ActivityScreen'
 
-const RootNavigator = StackNavigator({
+export const AppNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen
   }
-}, {
-  headerMode: 'none'
 })
 
-export default RootNavigator
+export default createAppContainer(AppNavigator)
